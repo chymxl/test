@@ -18,6 +18,7 @@ class Greeter extends Component{
     sayHi = (data) => {
         this.state.data = data;
     }
+	
 }
 
 export default Greeter;
