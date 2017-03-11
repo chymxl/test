@@ -14,6 +14,9 @@ class Greeter extends Component{
             </div>
         );
     }
+    show = ()=>{
+        this.state.show = true;
+    }
 }
 
 export default Greeter;
