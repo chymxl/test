@@ -7,7 +7,7 @@ var path = require("path");
 module.exports = {
     devtool: 'eval-source-map', //生成source-map
     entry : [
-        'webpack-hot-middleware/client?path=http:127.0.0.1:3000/__webpack_hmr&reload=true&noInfo=false&quiet=false',
+        'webpack-hot-middleware/client?reload=true',
         './app/main.js'
     ],
     output: {
