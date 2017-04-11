@@ -5,7 +5,7 @@ var webpack = require("webpack");
 var path = require("path");
 
 module.exports = {
-    devtool: 'eval-source-map', //生成source-map
+    devtool: 'source-map', //生成source-map
     entry : [
         'webpack-hot-middleware/client?reload=true',
         './app/main.js'
