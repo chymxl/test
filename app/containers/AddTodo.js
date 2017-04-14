@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from '../actions';
 
-let AddTodo = ({ dispatcher }) => {
+let AddTodo = ({ dispatch }) => {
     let input
 
     return (
@@ -12,7 +12,7 @@ let AddTodo = ({ dispatcher }) => {
                 if(!input.value.trim()){
                     return
                 }
-                dispatcher(addTodo(input.value))
+                dispatch(addTodo(input.value))
                 input.value = ''
             }}>
                 <input ref={node => {

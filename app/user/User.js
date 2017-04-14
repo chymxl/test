@@ -33,39 +33,39 @@ class User extends Component{
     }
 
     render(){
-        // let elements = this.userStore.users.map((val, key) => {
-        //     return (
-        //         <tr>
-        //             <td>{key}</td>
-        //             <td>{val.id}</td>
-        //             <td>{val.username}</td>
-        //             <td>{val.password}</td>
-        //             <td>{val.password_salt}</td>
-        //         </tr>
-        //     )
-        // });
-        // return (
-        //     <Table striped bordered condensed hover>
-        //         <thead>
-        //         <tr>
-        //             <th>#</th>
-        //             <th>id</th>
-        //             <th>username</th>
-        //             <th>password</th>
-        //             <th>salt</th>
-        //         </tr>
-        //         </thead>
-        //         <tbody>
-        //         {elements}
-        //         </tbody>
-        //     </Table>
-        // );
+        let elements = this.userStore.users.map((val, key) => {
+            return (
+                <tr>
+                    <td>{key}</td>
+                    <td>{val.id}</td>
+                    <td>{val.username}</td>
+                    <td>{val.password}</td>
+                    <td>{val.password_salt}</td>
+                </tr>
+            )
+        });
         return (
-            <ReactDataGrid onGridSort={this.handleGridSort} columns={this.userStore._columns}
-                rowGetter={this.rowGetter}
-                rowsCount={this.userStore.users.length}
-                minHeight={500}/>
-        )
+            <Table striped bordered condensed hover>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>id</th>
+                    <th>username</th>
+                    <th>password</th>
+                    <th>salt</th>
+                </tr>
+                </thead>
+                <tbody>
+                {elements}
+                </tbody>
+            </Table>
+        );
+        // return (
+        //     <ReactDataGrid onGridSort={this.handleGridSort} columns={this.userStore._columns}
+        //         rowGetter={this.rowGetter}
+        //         rowsCount={this.userStore.users.length}
+        //         minHeight={500}/>
+        // )
     }
 }
 export default User;

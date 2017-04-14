@@ -12,7 +12,14 @@ var webpackConfig = require("./webpack.config");
 var app = express();
 
 var compiler = webpack(webpackConfig);
-app.use(webpackDevMiddleware(compiler));
+app.use(webpackDevMiddleware(compiler,{
+    noInfo: true,
+    hot: true,
+    historyApiFallback: true,
+    stats: {
+        colors: true
+    }
+}));
 app.use(webpackHotMiddleware(compiler));
 app.use(express.static('public'));
 
