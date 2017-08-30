@@ -8,7 +8,7 @@ module.exports = {
     devtool: 'source-map', //生成source-map
     entry : [
         'webpack-hot-middleware/client?reload=true',
-        './app/index.js'
+        './app/main.js'
     ],
     output: {
         path : __dirname + '/public',
