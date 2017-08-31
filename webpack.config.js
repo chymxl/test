@@ -7,7 +7,8 @@ var path = require("path");
 module.exports = {
     devtool: 'source-map', //生成source-map
     entry : [
-        'webpack-hot-middleware/client?reload=true',
+       //'webpack-hot-middleware/client?reload=true',
+       'babel-polyfill',
         './app/main.js'
     ],
     output: {
@@ -16,6 +17,17 @@ module.exports = {
         publicPath: "/public/",
         chunkFilename: 'bundle.js'
     },
+
+    resolve: {
+        modules: [path.resolve(__dirname, 'app'), 'node_modules'],
+        extensions: ['.js', '.jsx'],
+    },
+
+    node: {
+        fs: 'empty',
+        module: 'empty'
+    },
+
     module: {
         loaders: [
             {
@@ -24,6 +36,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
+                include: path.join(__dirname, 'app'),
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },

@@ -10,9 +10,9 @@ export default class InfoStore {
 
     @action
     getInfo(){
-        fetch('http://localhost:8888')
+        fetch('http://ficloud.top:9999')
             .then(response => response.ok ? response.json() : {})
-            .then(data => {
+            .then(data => { 
                 console.log(data)
                 this.data.replace(data)
             })
