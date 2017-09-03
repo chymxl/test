@@ -19,15 +19,9 @@ module.exports = {
     },
 
     resolve: {
-        modules: [path.resolve(__dirname, 'app'), 'node_modules'],
+        modules: [__dirname + '/app', 'node_modules'],
         extensions: ['.js', '.jsx'],
     },
-
-    node: {
-        fs: 'empty',
-        module: 'empty'
-    },
-
     module: {
         loaders: [
             {
@@ -36,7 +30,7 @@ module.exports = {
             },
             {
                 test: /\.js$/,
-                include: path.join(__dirname, 'app'),
+                include: __dirname + '/app',
                 exclude: /node_modules/,
                 loader: "babel-loader"
             },
@@ -45,16 +39,16 @@ module.exports = {
                 loader: "style-loader!css-loader?mudoles"//感叹号作用在于使同一文件使用不同loader
             }
         ]
-    },
-    plugins: [
-        new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoEmitOnErrorsPlugin()
-    ],
-    devServer: {
-        contentBase: "./public",//本地服务器加载页面所在目录
-        colors: true, //终端中输出结果为彩色
-        historyApiFallback: true, //不跳转
-        inline: true//实时刷新
     }
+    // plugins: [
+    //     new webpack.optimize.OccurrenceOrderPlugin(),
+    //     new webpack.HotModuleReplacementPlugin(),
+    //     new webpack.NoEmitOnErrorsPlugin()
+    // ],
+    // devServer: {
+    //     contentBase: "./public",//本地服务器加载页面所在目录
+    //     colors: true, //终端中输出结果为彩色
+    //     historyApiFallback: true, //不跳转
+    //     inline: true//实时刷新
+    // }
 }

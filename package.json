@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --progress --inline"
+    "start": "webpack-dev-server --progress --inline",
+    "publish": "cross-env NODE_ENV=production webpack --config webpack.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",
     "babel-preset-stage-0": "^6.22.0",
+    "cross-env": "^5.0.5",
     "css-loader": "^0.27.1",
     "json-loader": "^0.5.4",
     "react-transform-hmr": "^1.0.4",
