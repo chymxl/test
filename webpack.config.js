@@ -7,7 +7,7 @@ var path = require("path");
 module.exports = {
     devtool: 'source-map', //生成source-map
     entry : [
-       //'webpack-hot-middleware/client?reload=true',
+       'webpack-hot-middleware/client?reload=true',
        'babel-polyfill',
         './app/main.js'
     ],
@@ -39,16 +39,16 @@ module.exports = {
                 loader: "style-loader!css-loader?mudoles"//感叹号作用在于使同一文件使用不同loader
             }
         ]
+    },
+    plugins: [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NoEmitOnErrorsPlugin()
+    ],
+    devServer: {
+        contentBase: "./public",//本地服务器加载页面所在目录
+        colors: true, //终端中输出结果为彩色
+        historyApiFallback: true, //不跳转
+        inline: true//实时刷新
     }
-    // plugins: [
-    //     new webpack.optimize.OccurrenceOrderPlugin(),
-    //     new webpack.HotModuleReplacementPlugin(),
-    //     new webpack.NoEmitOnErrorsPlugin()
-    // ],
-    // devServer: {
-    //     contentBase: "./public",//本地服务器加载页面所在目录
-    //     colors: true, //终端中输出结果为彩色
-    //     historyApiFallback: true, //不跳转
-    //     inline: true//实时刷新
-    // }
 }

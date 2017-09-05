@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Table } from 'react-bootstrap'
 import { observer } from 'mobx-react'
 import InfoStore from '../stores/InfoStore'
+import { Link }  from 'react-router-dom'
 
 @observer
 export default class Info extends Component{
@@ -14,16 +15,17 @@ export default class Info extends Component{
     }
     render(){
         return (
-            <Table striped bordered condensed hover>
-                <thead>
+            <div>
+                <Table striped bordered condensed hover>
+                    <thead>
                     <tr>
                         <th>appCode</th>
                         <th>appName</th>
                         <th>host</th>
                         <th>port</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+                    <tbody>
                     {
                         this.store.data.map(info => (
                             <tr key={info.code}>
@@ -34,10 +36,13 @@ export default class Info extends Component{
                             </tr>
                         ))
                     }
-                    
-                </tbody>
-             </Table>
+
+                    </tbody>
+                </Table>
+                <Link to="/test">test</Link>
+            </div>
+
         )
-        
+
     }
 }

@@ -1,2 +1,4 @@
 /node_modules/
-/public/
+/public/bundle.js
+/public/bundle.js.map
+.idea/
